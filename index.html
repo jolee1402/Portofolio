@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --card-bg: #121212;
+            --accent-gold: #d4af37;
+            --accent-glow: rgba(212, 175, 55, 0.1);
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --border-color: #262626;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Latar Belakang Estetik */
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% -20%, #1a1510, transparent 60%);
+            z-index: -1;
+        }
+
+        /* Container Utama */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header / Hero Section */
+        header {
+            text-align: center;
+            padding: 80px 0 60px 0;
+            position: relative;
+        }
+
+        header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #ffffff, var(--accent-gold), #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: var(--accent-gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        /* Grid Layout untuk Informasi */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        /* Kartu Informasi (UX Mewah) */
+        .info-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 40px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, var(--accent-glow), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.05);
+        }
+
+        .info-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        /* Detail Isi Kartu */
+        .info-card h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .info-item {
+            margin-bottom: 20px;
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            font-weight: 400;
+        }
+
+        /* Khusus untuk Nama Chinese dengan font elegan */
+        .chinese-text {
+            font-family: 'Cinzel', serif, "Microsoft JhengHei";
+            font-size: 1.3rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 100px;
+            padding: 40px 0;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        /* Responsif untuk HP */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            .info-card {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-overlay"></div>
+
+    <div class="container">
+        <header>
+            <h1>Jovan</h1>
+            <p>Professional Portfolio</p>
+        </header>
+
+        <div class="portfolio-grid">
+            
+            <div class="info-card">
+                <h2>Personal Profile</h2>
+                
+                <div class="info-item">
+                    <div class="info-label">Nama Lengkap</div>
+                    <div class="info-value">Jovante Lee</div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">Nama mandarin / Chinese Name</div>
+                    <div class="info-value class="chinese-text"">李俊伟</div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-label">Tanggal Lahir</div>
+                    <div class="info-value">8 September 2010</div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h2>Vocation & Passion</h2>
+                
+                <div class="info-item">
+                    <div class="info-label">Pekerjaan / Bidang</div>
+                    <div class="info-value">Bussines / Seller</div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">Hobi & Ketertarikan</div>
+                    <div class="info-value">Sepak bola , Masak , Bisnis </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">Bahasa</div>
+                    <div class="info-value">Chinese , Indonesia</div>
+                </div>
+
+               <div class="info-item">
+                    <div class="info-label">Impian</div>
+                    <div class="info-value">Zhejiang University (Bussines Administration) </div>
+               </div>
+            </div>
+
+            <div class="info-card">
+                <h2>Contact & Socials</h2>
+                
+                <div class="info-item">
+                    <div class="info-label">Lokasi</div>
+                    <div class="info-value">Jakarta, Indonesia</div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">Email</div>
+                    <div class="info-value">le423369@gmail.com</div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">Instagram / LinkedIn</div>
+                    <div class="info-value">@seo.jolee</div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <p>&copy; 2026. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+</body>
+</html>

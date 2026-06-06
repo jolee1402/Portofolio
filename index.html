@@ -220,6 +220,7 @@
             justify-content: center;
             font-size: 120px;
             transition: transform 0.6s ease;
+            object-fit: cover;
         }
 
         .profile-photo:hover {
@@ -402,6 +403,58 @@
             font-family: 'Cinzel', serif;
             font-size: 1.3rem;
             font-weight: 600;
+        }
+
+        /* ===== GALLERY SECTION ===== */
+        .gallery-section {
+            margin-top: 80px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 2px solid var(--border-color);
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+        }
+
+        .gallery-item:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.95), transparent);
+            color: var(--accent-gold);
+            padding: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-align: center;
+            font-size: 1.1rem;
         }
 
         /* ===== SKILLS SECTION ===== */
@@ -645,6 +698,7 @@
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -658,7 +712,7 @@
                 <p>Welcome to my portfolio</p>
                 <h1>Jovante Lee</h1>
                 <div class="hero-subtitle">
-                     Being young is not about waiting for your turn; it is about creating your own opportunities. While others are still planning, we are already stepping forward and building the foundation of tomorrow. 
+                     Being young is not about waiting for your turn; it is about creating your own opportunities. While others are still planning, we are already stepping forward and building the[...]
                     Based in Jakarta, Indonesia. Fluent in Chinese & Indonesian.
                 </div>
                 <div class="cta-buttons">
@@ -674,7 +728,7 @@
             </div>
 
             <div class="hero-image">
-                <div class="profile-photo">image1</div>
+                <img src="https://raw.githubusercontent.com/jolee1402/Portofolio/main/IMG_20250627_114132_388.jpg" alt="Jovante Lee - Profile Photo" class="profile-photo">
             </div>
         </section>
 
@@ -769,6 +823,45 @@
                     </div>
                 </div>
 
+            </div>
+        </section>
+
+        <!-- Gallery Section - Certificates, Screenshots & Profile -->
+        <section class="gallery-section" id="gallery">
+            <h2 class="section-title">Certificates & Media</h2>
+            <div class="gallery-grid">
+                <!-- Certificates -->
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/jolee1402/Portofolio/main/CERTIFICATE_LANDING_PAGE~039TY4D9PV6P.jpeg" alt="Certificate 1">
+                    <div class="gallery-label">Sertifikat 1</div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/jolee1402/Portofolio/main/CERTIFICATE_LANDING_PAGE~JAN5MTBFKS12.jpeg" alt="Certificate 2">
+                    <div class="gallery-label">Sertifikat 2</div>
+                </div>
+
+                <!-- Screenshots -->
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/jolee1402/Portofolio/main/Screenshot_20260524-122506.jpg" alt="Screenshot 1">
+                    <div class="gallery-label">Screenshot 1</div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/jolee1402/Portofolio/main/Screenshot_20260524-122530.jpg" alt="Screenshot 2">
+                    <div class="gallery-label">Screenshot 2</div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/jolee1402/Portofolio/main/Screenshot_20260524-122558.jpg" alt="Screenshot 3">
+                    <div class="gallery-label">Screenshot 3</div>
+                </div>
+
+                <!-- Profile Photo -->
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/jolee1402/Portofolio/main/IMG_20250627_114132_388.jpg" alt="Profile Photo">
+                    <div class="gallery-label">Foto Profil</div>
+                </div>
             </div>
         </section>
 
@@ -890,7 +983,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.info-card, .skill-item, .achievement-item').forEach(el => {
+        document.querySelectorAll('.info-card, .skill-item, .achievement-item, .gallery-item').forEach(el => {
             observer.observe(el);
         });
     </script>
